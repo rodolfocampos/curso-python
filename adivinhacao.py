@@ -2,27 +2,34 @@ import random
 
 
 def jogar():
+    imprime_boas_vindas()
+    iniciar_jogo()
+
+
+def imprime_boas_vindas():
     print("*********************************\n")
     print("Bem vindo ao jogo de adivinhacão!\n")
     print("*********************************\n")
 
-    numero_secreto = int(random.randint(1, 50))
-    rodada = 1
-    pontos = 1000
 
-    def selecionar_dificuldade():
-        print("Qual o nível de dificuldade?")
-        print("(1) Fácil (2) Médio (3) Difícil")
-        nivel = int(input("Defina o nível: "))
-        if nivel == 1:
-            tentativas = 10
-        elif nivel == 2:
-            tentativas = 6
-        elif nivel == 3:
-            tentativas = 3
-        else:
-            selecionar_dificuldade()
-        return tentativas
+def selecionar_dificuldade():
+    print("Qual o nível de dificuldade?")
+    print("(1) Fácil (2) Médio (3) Difícil")
+    nivel = int(input("Defina o nível: "))
+    if nivel == 1:
+        tentativas = 10
+    elif nivel == 2:
+        tentativas = 6
+    elif nivel == 3:
+        tentativas = 3
+    else:
+        selecionar_dificuldade()
+    return tentativas
+
+
+def iniciar_jogo():
+    numero_secreto = int(random.randint(1, 50))
+    pontos = 1000
 
     total_de_tentativas = selecionar_dificuldade()
 
